@@ -90,7 +90,7 @@ MonoBehaviour:
   - 2.5
   appleSpawnChance: 0.3
   coinSpawnChance: 0.5
-  coinSeperationLeght: 2.5
+  coinSeperationLeght: 2
 --- !u!1 &7895116662120431520
 GameObject:
   m_ObjectHideFlags: 0
