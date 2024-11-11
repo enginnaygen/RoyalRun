@@ -2,13 +2,27 @@ using UnityEngine;
 
 public class PlayerCollisionHandler : MonoBehaviour
 {
-    const string playerTag = "Player";
 
+    [SerializeField] float collsionCooldown = 1f;
+    [SerializeField] Animator animator;
+
+    const string hitTrigger = "Hit";
+    float timer = 0;
+    
+    private void Update()
+    {
+        timer += Time.deltaTime;
+    }
     private void OnCollisionEnter(Collision collision)
     {
-        if(gameObject.CompareTag(playerTag))
+        if(timer > collsionCooldown)
         {
-            Debug.Log(collision.gameObject.name);
+            animator.SetTrigger(hitTrigger);
+            timer = 0f;
+
         }
+
     }
+
+    
 }
