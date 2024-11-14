@@ -5,14 +5,21 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] CameraController cameraController;
     [SerializeField] GameObject chunkPrefab;
-    [SerializeField] int startingChunksAmount = 12;
     [SerializeField] Transform chunkParent;
+
+    [Header("Level Settings")]
+    [Tooltip("The amount of chunks we start with")]
+    [SerializeField] int startingChunksAmount = 12;
+    [Tooltip("Do not change chunk lengt unless chunk prefab size reflects change")]
     [SerializeField] int chunkLenght = 10;
     [SerializeField] float moveSpeed = 8f;
     [SerializeField] float minMoveSpeed = 2f;
-    //[SerializeField] float maxMoveSpeed = 15f;
+    [SerializeField] float maxMoveSpeed = 15f;
+    [SerializeField] float minGravityZ = -22f;
+    [SerializeField] float maxGravityZ = -2f;
 
     List<GameObject> chunks = new List<GameObject>();
     void Start()
@@ -26,21 +33,24 @@ public class LevelGenerator : MonoBehaviour
     }
 
     public void ChangeMoveSpeedChunk(float speedAdjustAmount)
-    {       
-        moveSpeed += speedAdjustAmount;
+    {
+        float newMoveSpeed = moveSpeed + speedAdjustAmount;
+        newMoveSpeed = Mathf.Clamp(newMoveSpeed, minMoveSpeed, maxMoveSpeed);
 
-        if (moveSpeed < minMoveSpeed)
+
+        if (newMoveSpeed != moveSpeed)
         {
-            moveSpeed = minMoveSpeed;
+            moveSpeed = newMoveSpeed;
+
+            float newGravityZ = Physics.gravity.z - speedAdjustAmount;
+            newGravityZ = Mathf.Clamp(newGravityZ, minGravityZ, maxGravityZ);
+
+            Physics.gravity = new Vector3(Physics.gravity.x, Physics.gravity.y, newGravityZ);
+
+            cameraController.ChangeCameraFOV(speedAdjustAmount);
         }
 
-        /*if(moveSpeed > maxMoveSpeed)
-        {
-            moveSpeed = maxMoveSpeed;
-        }*/
 
-        Physics.gravity = new Vector3(Physics.gravity.x, Physics.gravity.y, Physics.gravity.z - speedAdjustAmount);
-        cameraController.ChangeCameraFOV(speedAdjustAmount);
     }
     void SpawnStartingChunks()
     {
