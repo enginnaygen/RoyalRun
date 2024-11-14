@@ -12,7 +12,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] int chunkLenght = 10;
     [SerializeField] float moveSpeed = 8f;
     [SerializeField] float minMoveSpeed = 2f;
-    [SerializeField] float maxMoveSpeed = 15f;
+    //[SerializeField] float maxMoveSpeed = 15f;
 
     List<GameObject> chunks = new List<GameObject>();
     void Start()
@@ -34,10 +34,10 @@ public class LevelGenerator : MonoBehaviour
             moveSpeed = minMoveSpeed;
         }
 
-        if(moveSpeed > maxMoveSpeed)
+        /*if(moveSpeed > maxMoveSpeed)
         {
             moveSpeed = maxMoveSpeed;
-        }
+        }*/
 
         Physics.gravity = new Vector3(Physics.gravity.x, Physics.gravity.y, Physics.gravity.z - speedAdjustAmount);
         cameraController.ChangeCameraFOV(speedAdjustAmount);
