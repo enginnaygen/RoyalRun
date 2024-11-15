@@ -3,8 +3,11 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    int score;
+    [SerializeField] GameManager gameManager;
     [SerializeField] TextMeshProUGUI scoreText;
+
+    int score;
+
 
     private void Start()
     {
@@ -13,6 +16,8 @@ public class ScoreManager : MonoBehaviour
     }
     public void ChangeScore(int changeAmount)
     {
+        if (gameManager.GameOver) return;
+
         score += changeAmount;
         scoreText.text = score.ToString();
     }
