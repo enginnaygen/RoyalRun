@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dbe90aaf35a9bc4ab4d7747f1594412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 75759551}
   scoreText: {fileID: 1367405510}
 --- !u!4 &75759550
 Transform:
@@ -706,7 +707,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraController: {fileID: 493495616}
-  chunkPrefab: {fileID: 6027526657726631413, guid: 4c6372f8651ce1c4ea034ad5a7ce5334, type: 3}
+  chunkPrefabs:
+  - {fileID: 4895060492071519369, guid: 6849b67d6ad129f4b88a94846b69cd52, type: 3}
+  - {fileID: 6027526657726631413, guid: 4c6372f8651ce1c4ea034ad5a7ce5334, type: 3}
+  - {fileID: 4895060492071519369, guid: cce860f4a6d194c48981bb4b355858cd, type: 3}
+  - {fileID: 4895060492071519369, guid: 2458c109522bb144cbd9911099ab6558, type: 3}
   chunkParent: {fileID: 137044136}
   scoreManager: {fileID: 75759549}
   startingChunksAmount: 12
