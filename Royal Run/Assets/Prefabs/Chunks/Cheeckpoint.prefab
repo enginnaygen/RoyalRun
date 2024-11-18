@@ -224,6 +224,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4388284198382325140, guid: 4c6372f8651ce1c4ea034ad5a7ce5334, type: 3}
+      propertyPath: coinSpawnChance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388284198382325140, guid: 4c6372f8651ce1c4ea034ad5a7ce5334, type: 3}
+      propertyPath: appleSpawnChance
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6027526657726631413, guid: 4c6372f8651ce1c4ea034ad5a7ce5334, type: 3}
       propertyPath: m_Name
       value: Cheeckpoint
@@ -304,6 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   increaseTime: 5
+  decreaseSpawnTimeAmount: 0.2
 --- !u!1001 &1237137358685520841
 PrefabInstance:
   m_ObjectHideFlags: 0
