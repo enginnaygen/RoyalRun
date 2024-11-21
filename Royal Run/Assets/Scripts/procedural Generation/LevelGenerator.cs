@@ -14,7 +14,7 @@ public class LevelGenerator : MonoBehaviour
 
     [Header("Level Settings")]
     [Tooltip("The amount of chunks we start with")]
-    [SerializeField] int checkpointChunkInterval = 12;
+    //[SerializeField] int checkpointChunkInterval = 12;
     [SerializeField] int startingChunksAmount = 8;
     [Tooltip("Do not change chunk lengt unless chunk prefab size reflects change")]
     [SerializeField] int chunkLenght = 10;

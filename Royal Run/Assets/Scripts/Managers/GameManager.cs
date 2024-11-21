@@ -1,5 +1,8 @@
 using UnityEngine;
 using TMPro;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -49,5 +52,16 @@ public class GameManager : MonoBehaviour
         playerController.enabled = false;
         gameOverText.SetActive(true);
         Time.timeScale = .1f;
+        StartCoroutine(LoadScene());
+
+        
+    }
+
+    IEnumerator LoadScene()
+    {
+        yield return new WaitForSecondsRealtime(3f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
+
     }
 }
